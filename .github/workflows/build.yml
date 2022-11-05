@@ -9,6 +9,12 @@ jobs:
       image: zmkfirmware/zmk-build-arm:stable
     name: Build
     steps:
+      - if: ${{ env.ACT }}
+        name: Hack container for local development
+        run: |
+            apt-get update && apt-get install -y sudo curl
+            curl -fsSL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+            sudo apt-get install -y nodejs
       - name: Checkout
         uses: actions/checkout@v3
       - name: Cache west modules

@@ -1,8 +1,8 @@
-#define HOST_OS 2
-#include "../zmk-nodefree-config/helper.h"
-// #include "../zmk-nodefree-config/international_chars/german.dtsi"
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#define HOST_OS 2
+#include "../zmk-nodefree-config/helper.h"
+#include "../zmk-nodefree-config/international_chars/german.dtsi"
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/backlight.h>
@@ -33,16 +33,11 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
 // replace a/o/u/s with German umlauts when NAV and NUM are held jointly
 // ZMK_CONDITIONAL_LAYER(NAV NUM, GER)
 
-ZMK_UNICODE_PAIR(   de_ae,      N0, N0,  E, N4,    N0, N0,  C, N4)
-ZMK_UNICODE_PAIR(   de_oe,      N0, N0,  F, N6,    N0, N0,  D, N6)
-ZMK_UNICODE_PAIR(   de_ue,      N0, N0,  F,  C,    N0, N0,  D,  C)
-ZMK_UNICODE_SINGLE( de_eszett,  N0, N0,  D,  F)
-
 // combos
-#undef COMBO_TERM
-#define COMBO_TERM 40  // timeout of 40ms (default is 30ms if omitted)
-ZMK_COMBO(combo_copy,   &kp LC(C),  LB2 LB3, ALL)  // Ctrl + C, active on all layers
-ZMK_COMBO(combo_paste,  &kp LC(V),  LB1 LB2, ALL)  // Ctrl + V, active on all layers
+//#undef COMBO_TERM
+//#define COMBO_TERM 40  // timeout of 40ms (default is 30ms if omitted)
+//ZMK_COMBO(combo_copy,   &kp LC(C),  LB2 LB3, ALL)  // Ctrl + C, active on all layers
+//ZMK_COMBO(combo_paste,  &kp LC(V),  LB1 LB2, ALL)  // Ctrl + V, active on all layers
 
 / {
 	keymap {
@@ -58,9 +53,9 @@ ZMK_COMBO(combo_paste,  &kp LC(V),  LB1 LB2, ALL)  // Ctrl + V, active on all la
 				// ------------------------------------------------------------------------------------------------------------
 			bindings = <
 				&kp ESC		&kp C_BRIGHTNESS_DEC 	&kp C_BRIGHTNESS_INC 	&rgb_ug RGB_TOG 	&rgb_ug RGB_EFF 	&bl BL_DEC 	&bl BL_INC 	&kp C_PREV 	&kp C_PP 	&kp C_NEXT 	&none 		&none 			&kp HASH 	&kp C_AL_LOCK 	&kp C_MUTE 	&kp C_MUTE
-				&kp GRAVE 	&kp N1 					&kp N2 					&kp N3 				&kp N4 				&kp N5 		&kp N6 		&kp N7 		&kp N8 		&kp N9 		&kp N0 		&kp de_eszett 	&kp EQUAL 	&kp BSPC 					&mt LCMD C
-				&kp Q 		&kp W 					&kp E 					&kp R 				&kp T 				&kp Z 		&kp U 		&kp I 		&kp O 		&kp P 		&kp de_ue 	&kp RBKT 			 		&BSLH						&mt LCMD V
-				&mo 1 		&kp A 					&kp S 					&kp D 				&kp F 				&kp G 		&kp H 		&kp J 		&kp K 		&kp L 		&kp de_oe 	&kp de_ae 					&kp RET 					&kp PG_UP
+				&kp GRAVE 	&kp N1 					&kp N2 					&kp N3 				&kp N4 				&kp N5 		&kp N6 		&kp N7 		&kp N8 		&kp N9 		&kp N0 		&de_eszett 		&kp EQUAL 	&kp BSPC 					&mt LCMD C
+				&kp Q 		&kp W 					&kp E 					&kp R 				&kp T 				&kp Z 		&kp U 		&kp I 		&kp O 		&kp P 		&de_ue 		&kp RBKT 			 		&kp BSLH					&mt LCMD V
+				&mo 1 		&kp A 					&kp S 					&kp D 				&kp F 				&kp G 		&kp H 		&kp J 		&kp K 		&kp L 		&de_oe 		&de_ae 			&kp RET 								&kp PG_UP
 				&kp LSHFT 	&kp LESS_THAN 			&kp Y 					&kp X 				&kp C 				&kp V 		&kp B 		&kp N 		&kp M 		&kp COMMA 	&kp DOT 					&kp RSHFT 	&kp RSHFT 		&kp UP 		&kp PG_DN
 				&kp LCTRL 	&kp LCMD 				&kp LALT 														&kp SPACE 													&kp RALT 	&kp RCMD 		&kp RCTRL 	&kp LEFT 		&kp DOWN 	&kp RIGHT
 			>;
@@ -68,12 +63,12 @@ ZMK_COMBO(combo_paste,  &kp LC(V),  LB1 LB2, ALL)  // Ctrl + V, active on all la
 		};
 		raise {
 			bindings = <
-				&trans &rgb_ug RGB_BRD &rgb_ug RGB_BRI &rgb_ug RGB_SPD &rgb_ug RGB_SPI &rgb_ug RGB_EFF &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-				&kp ESC &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp  F8   &kp  F9   &kp F10  &kp F11 &kp F12 &trans &trans &trans
-				&trans &trans &kp UP &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-				&trans    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans  &trans   &bootloader &trans
-				&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans  &trans &trans &trans &trans
-				&bt BT_PRV &bt BT_NX uiT  &trans              &trans                            &trans   &trans  &trans &trans &trans &trans
+				&trans		&rgb_ug RGB_BRD 		&rgb_ug RGB_BRI 		&rgb_ug RGB_SPD 	&rgb_ug RGB_SPI 	&rgb_ug RGB_EFF 	&trans 		&trans	&trans	&trans		&trans		&trans			&trans		&trans			&trans		&trans
+				&kp ESC		&kp F1 					&kp F2 					&kp F3 				&kp F4 				&kp F5 				&kp F6 		&kp F7	&kp F8	&kp  F9		&kp F10		&kp F11			&kp F12		&trans 			&trans		&trans
+				&trans		&trans 					&kp UP 					&trans 				&trans 				&trans 				&trans 		&trans	&trans	&trans		&trans		&trans			&trans		&trans			&trans
+				&trans		&trans 					&trans 					&trans 				&trans 				&trans 				&trans 		&trans	&trans	&trans		&trans		&trans						&bootloader					&trans
+				&trans		&trans					&trans 					&trans 				&trans 				&trans 				&trans 		&trans	&trans	&trans		&trans		&trans			&trans 		&trans 			&trans 		&trans
+				&bt BT_PRV 	&bt BT_NXT				&trans              	&trans																								&trans		&trans			&trans		&trans			&trans		&trans
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
 		};
