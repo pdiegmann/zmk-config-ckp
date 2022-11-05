@@ -48,6 +48,7 @@ jobs:
       - name: Rename zmk.uf2
         run: cp build/zephyr/zmk.uf2 bt75.uf2
       - name: Archive (bt75)
+        if: ${{ !env.ACT }}
         uses: actions/upload-artifact@v3
         with:
           name: firmware
