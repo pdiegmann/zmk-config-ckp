@@ -57,12 +57,12 @@ ZMK_UNICODE_PAIR( de_eszett,   N0, N0,  D,  F,   N0, N0,  N3,  F )
 		shift {
 			bindings = <
 			// 	1 			2 						3 						4 					5 					6 					7 			8 		9 		10 			11 		 	12 	  			13 	   		14 				15 		 	16
-				&trans		&trans					&trans 		&trans 	&trans 	trans 	&trans 		&trans	&trans	&trans		&trans		&trans			&trans		&trans			&trans		&trans
-				&trans		&trans 					&DQT 					&trans 				&ktrans 				&trans 				&ktrans 		&trans	&trans	&trans		&trans	&trans			&trans		&trans 			&trans		&trans
+				&trans		&trans					&trans 					&trans 				&trans 				&trans 				&trans 		&trans	&trans	&trans		&trans		&trans			&trans		&trans			&trans		&trans
+				&trans		&trans 					&DQT 					&trans 				&ktrans 			&trans 				&ktrans 	&trans	&trans	&trans		&trans		&trans			&trans		&trans 			&trans		&trans
 				&trans		&trans 					&trans 					&trans 				&trans 				&trans 				&trans 		&trans	&trans	&trans		&trans		&trans			&trans		&trans			&trans
-				&trans		&trans 					&trans 					&trans 				&trans 				&trans 				&trans 		&trans	&trans	&trans		&trans		&trans						&trans					&trans
-				&kp LSHFT		&trans					&trans 					&trans 				&trans 				&trans 				&trans 		&trans	&trans	&trans		&trans		&trans			&trans 		&trans 			&trans 		&trans
-				&trans 	&trans				&trans              											&trans														&trans		&trans			&trans		&trans			&trans		&trans
+				&trans		&trans 					&trans 					&trans 				&trans 				&trans 				&trans 		&trans	&trans	&trans		&trans		&trans						&trans						&trans
+				&kp LSHFT	&trans					&trans 					&trans 				&trans 				&trans 				&trans 		&trans	&trans	&trans		&trans		&trans			&trans 		&trans 			&trans 		&trans
+				&trans 		&trans					&trans              											&trans														&trans		&trans			&trans		&trans			&trans		&trans
 			>;
 		};
 	};
