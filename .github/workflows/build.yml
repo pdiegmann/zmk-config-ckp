@@ -11,8 +11,7 @@ jobs:
       image: docker.io/zmkfirmware/zmk-build-arm:3.0
     name: Build
     steps:
-      - if: ${{ env.ACT }}
-        name: Hack container for local development
+      - name: Hack container for local development
         run: |
             apt-get update && apt-get install -y sudo curl
             curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
