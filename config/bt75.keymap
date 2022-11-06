@@ -44,7 +44,7 @@ ZMK_UNICODE_PAIR( de_eszett,   N0, N0,  D,  F,   N0, N0,  N3,  F )
 				&kp LSHFT 				 			&kp Z 					&kp X 				&kp C 				&kp V 		&kp B 		&kp N 		&kp M 		&kp COMMA 	&kp DOT 		&kp MINUS			&kp LC(LS(LG(LALT))) 					&kp UP 		&kp PG_DN
 				&kp LCTRL 	&kp LALT 				&kp LGUI 														&kp SPACE 													&kp RGUI 		&mo RAISE 			&kp LC(LS(LALT))		&kp LEFT 		&kp DOWN 	&kp RIGHT
 			>;
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP>;
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 		raise {
 			bindings = <
@@ -56,7 +56,7 @@ ZMK_UNICODE_PAIR( de_eszett,   N0, N0,  D,  F,   N0, N0,  N3,  F )
 				&trans		&trans					&trans 					&trans 				&trans 				&trans 				&trans 		&trans	&trans	&trans		&trans		&trans			&trans 		&trans 			&trans 		&trans
 				&bt BT_PRV 	&bt BT_NXT				&trans              											&trans														&trans		&trans			&trans		&trans			&trans		&trans
 			>;
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP>;
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 	};
 };
