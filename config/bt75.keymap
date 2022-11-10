@@ -45,7 +45,7 @@ ZMK_UNICODE_PAIR( de_eszett,   N0, N0,  D,  F,   N0, N0,  N3,  F )
 				&kp LSHFT 				 			&kp Z 					&kp X 				&kp C 				&kp V 		&kp B 		&kp N 		&kp M 		&kp COMMA 	&kp DOT 		&kp SLASH			&kp LC(LS(LG(LALT))) 					&kp UP 					&kp C_MENU
 				&kp LCTRL 	&kp LALT 				&kp LGUI 														&kp SPACE 													&kp RGUI 		&mo RAISE 			&kp LC(LS(LALT))		&kp LEFT 		&kp DOWN 				&kp RIGHT
 			>;
-			sensor-bindings = < &inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN &inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN&inc_dec_kp C_VOL_UP C_VOL_DN>;
+			sensor-bindings = < &inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 		raise {
 			bindings = <
@@ -57,7 +57,7 @@ ZMK_UNICODE_PAIR( de_eszett,   N0, N0,  D,  F,   N0, N0,  N3,  F )
 				&trans		&trans					&trans 					&trans 				&trans 				&trans 				&trans 		&trans	&trans	&trans		&trans		&trans			&trans 		&bootloader 	&trans 		&trans
 				&bt BT_PRV 	&bt BT_NXT				&bt BT_SEL             											&trans														&trans		&trans			&trans		&trans			&trans		&trans
 			>;
-			sensor-bindings = < &inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN &inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+			sensor-bindings = < &inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN &inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
 		};
 		inverted_scroll {
 			bindings = <
@@ -69,7 +69,7 @@ ZMK_UNICODE_PAIR( de_eszett,   N0, N0,  D,  F,   N0, N0,  N3,  F )
 				&trans		&trans		&trans 		&trans		&trans 		&trans 		&trans 		&trans 		&trans		&trans		&trans		&trans			&trans		&trans 			&trans 		&trans
 				&trans 		&trans		&trans              				&trans														&trans		&trans			&trans		&trans			&trans		&trans
 			>;
-			sensor-bindings = <&inc_dec_kp C_AC_SCROLL_DOWN C_AC_SCROLL_UP &inc_dec_kp C_AC_SCROLL_DOWN C_AC_SCROLL_UP &inc_dec_kp C_VOL_DN C_VOL_UP>;
+			sensor-bindings = <&inc_dec_kp C_AC_SCROLL_DOWN C_AC_SCROLL_UP &inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp C_AC_SCROLL_DOWN C_AC_SCROLL_UP>;
 		};
 	};
 };
