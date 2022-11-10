@@ -63,6 +63,6 @@ ZMK_UNICODE_PAIR( de_eszett,   N0, N0,  D,  F,   N0, N0,  N3,  F )
 			bindings = <
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_AC_SCROLL_DOWN C_AC_SCROLL_UP &inc_dec_kp C_AC_SCROLL_DOWN C_AC_SCROLL_UP>;
-		}
+		};
 	};
 };
