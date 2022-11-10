@@ -50,11 +50,11 @@ ZMK_UNICODE_PAIR( de_eszett,   N0, N0,  D,  F,   N0, N0,  N3,  F )
 		raise {
 			bindings = <
 			// 	1 			2 						3 						4 					5 					6 					7 			8 		9 		10 			11 		 	12 	  			13 	   		14 				15 		 	16
-				&trans		&rgb_ug RGB_BRD 		&rgb_ug RGB_BRI 		&rgb_ug RGB_SPD 	&rgb_ug RGB_SPI 	&rgb_ug RGB_EFF 	&trans 		&trans	&trans	&trans		&trans		&trans			&trans		&trans			&trans		&trans
-				&kp ESC		&kp F1 					&kp F2 					&kp F3 				&kp F4 				&kp F5 				&kp F6 		&kp F7	&kp F8	&kp F9		&kp F10		&kp F11			&kp F12		&trans 			&trans		&trans
-				&trans		&trans 					&kp UP 					&trans 				&trans 				&trans 				&trans 		&trans	&trans	&trans		&trans		&trans			&trans		&reset			&trans
+				&reset		&rgb_ug RGB_BRD 		&rgb_ug RGB_BRI 		&rgb_ug RGB_SPD 	&rgb_ug RGB_SPI 	&rgb_ug RGB_EFF 	&trans 		&trans	&trans	&trans		&trans		&trans			&trans		&bootloader			&reset		&trans
+				&kp ESC		&kp F1 					&kp F2 					&kp F3 				&kp F4 				&kp F5 				&kp F6 		&kp F7	&kp F8	&kp F9		&kp F10		&kp F11			&kp F12		&bootloader 			&trans		&trans
+				&trans		&trans 					&kp UP 					&trans 				&trans 				&trans 				&trans 		&trans	&trans	&trans		&trans		&trans			&trans		&bootloader			&trans
 				&trans		&trans 					&trans 					&trans 				&trans 				&trans 				&trans 		&trans	&trans	&trans		&trans		&trans						&bootloader					&trans
-				&trans		&trans					&trans 					&trans 				&trans 				&trans 				&trans 		&trans	&trans	&trans		&trans		&trans			&trans 		&trans 			&trans 		&trans
+				&trans		&trans					&trans 					&trans 				&trans 				&trans 				&trans 		&trans	&trans	&trans		&trans		&trans			&trans 		&bootloader 			&trans 		&trans
 				&bt BT_PRV 	&bt BT_NXT				&trans              											&trans														&trans		&trans			&trans		&trans			&trans		&trans
 			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
