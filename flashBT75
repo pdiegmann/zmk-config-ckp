@@ -1,21 +1,30 @@
 #!/usr/bin/env zsh
 
-echo "looking for board..."
-if test -f "/Volumes/CKP/CURRENT.UF2"; then
-    echo "looking for firmware..."
+function try_flash() {
+    echo "looking for board..."
 
-    if ls /Users/phil/Downloads/bt75-*.uf2 1> /dev/null 2>&1; then
-        filepath=$(printf '%s' /Users/phil/Downloads/bt75-[0-9]* | gsort --version-sort | tail -n 1)
-        echo "flashing ~/Downloads/${filepath##*-} to /Volumes/CKP/CURRENT.UF2..."
-        cp $filepath /Volumes/CKP/CURRENT.UF2
-        echo "done!"
-    elif test -f "/Users/phil/Downloads/bt75.uf2"; then
-        echo "flashing ~/Downloads/bt75.uf to /Volumes/CKP/CURRENT.UF2..."
-        cp /Users/phil/Downloads/bt75.uf2 /Volumes/CKP/CURRENT.UF2
-        echo "done!"
+    if test -f "/Volumes/CKP/CURRENT.UF2"; then
+        echo "looking for firmware..."
+
+        if ls /Users/phil/Downloads/bt75-*.uf2 1> /dev/null 2>&1; then
+            filepath=$(printf '%s' /Users/phil/Downloads/bt75-[0-9]* | gsort --version-sort | tail -n 1)
+            echo "flashing ~/Downloads/${filepath##*-} to /Volumes/CKP/CURRENT.UF2..."
+            cp $filepath /Volumes/CKP/CURRENT.UF2
+            echo "done!"
+            return 0
+        elif test -f "/Users/phil/Downloads/bt75.uf2"; then
+            echo "flashing ~/Downloads/bt75.uf to /Volumes/CKP/CURRENT.UF2..."
+            cp /Users/phil/Downloads/bt75.uf2 /Volumes/CKP/CURRENT.UF2
+            echo "done!"
+            return 0
+        else
+            echo "no firmware found!"
+            return 3
+        fi
     else
-        echo "no firmware found!"
+        echo "no board found!"
+        return 2
     fi
-else
-    echo "no board found!"
-fi
+}
+
+for i in $(seq 1 10); do [ $i -gt 1 ] && sleep 5; try_flash && s=0 && break || s=$?; done; (exit $s)
