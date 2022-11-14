@@ -65,7 +65,7 @@ ZMK_UNICODE_PAIR( de_eszett,   N0, N0,  D,  F,   N0, N0,  N3,  F )
 				&trans		&trans 		&trans 		&trans 		&trans 		&trans	 	&trans 		&trans		&trans		&trans		&trans		&trans			&trans		&trans			&trans		&trans
 				&trans		&trans 		&trans 		&trans 		&trans		&trans 		&trans 		&trans		&trans		&trans		&trans		&trans			&trans		&trans 			&trans		&trans
 				&trans		&trans 		&trans		&trans		&trans 		&trans 		&trans 		&trans		&trans		&trans		&trans		&trans			&trans		&trans			&trans
-				&trans		&trans 		&trans 		&trans		&trans 		&trans 		&trans 		&trans 		&trans		&trans		&trans		&trans			&trans		&trans						&tran
+				&trans		&trans 		&trans 		&trans		&trans 		&trans 		&trans 		&trans 		&trans		&trans		&trans		&trans			&trans		&trans						&trans
 				&trans		&trans		&trans 		&trans		&trans 		&trans 		&trans 		&trans 		&trans		&trans		&trans		&trans			&trans		&trans 			&trans 		&trans
 				&trans 		&trans		&trans              				&trans														&trans		&trans			&trans		&trans			&trans		&trans
 			>;
