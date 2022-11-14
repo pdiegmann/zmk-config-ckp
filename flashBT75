@@ -1,0 +1,21 @@
+#!/usr/bin/env zsh
+
+echo "looking for board..."
+if test -f "/Volumes/CKP/CURRENT.UF2"; then
+    echo "looking for firmware..."
+
+    if ls /Users/phil/Downloads/bt75-*.uf2 1> /dev/null 2>&1; then
+        filepath=$(printf '%s' /Users/phil/Downloads/bt75-[0-9]* | gsort --version-sort | tail -n 1)
+        echo "flashing ~/Downloads/${filepath##*-} to /Volumes/CKP/CURRENT.UF2..."
+        cp $filepath /Volumes/CKP/CURRENT.UF2
+        echo "done!"
+    elif test -f "/Users/phil/Downloads/bt75.uf2"; then
+        echo "flashing ~/Downloads/bt75.uf to /Volumes/CKP/CURRENT.UF2..."
+        cp /Users/phil/Downloads/bt75.uf2 /Volumes/CKP/CURRENT.UF2
+        echo "done!"
+    else
+        echo "no firmware found!"
+    fi
+else
+    echo "no board found!"
+fi
