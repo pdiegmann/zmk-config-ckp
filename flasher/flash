@@ -7,9 +7,10 @@ function try_flash() {
         echo "looking for firmware..."
 
         if ls /Users/phil/Downloads/bt75-*.uf2 1> /dev/null 2>&1; then
-            filepath=$(printf '%s' /Users/phil/Downloads/bt75-[0-9]* | gsort --version-sort | tail -n 1)
-            echo "flashing ~/Downloads/${filepath##*-} to /Volumes/CKP/CURRENT.UF2..."
-            cp $filepath /Volumes/CKP/CURRENT.UF2
+            typeset -A greatest
+            for f ($HOME/Downloads/bt75*-*(n)) greatest[${f%-*}]=$f
+            echo "flashing ${greatest} to /Volumes/CKP/CURRENT.UF2..."
+            cp $greatest /Volumes/CKP/CURRENT.UF2
             echo "done!"
             return 0
         elif test -f "/Users/phil/Downloads/bt75.uf2"; then
