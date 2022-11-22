@@ -59,8 +59,12 @@ jobs:
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
         run: cp build/zephyr/zmk.uf2 firmware.uf2 | cp build/zephyr/zmk.uf2 flasher/firmware.uf2
+      - name: make it executable
+        run: chmod +x flasher/flash
       - name: Generate flash
         run: bash ./create_flash.sh
+      - name: make it executable
+        run: chmod +x flash
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@v1
         env:
