@@ -78,7 +78,7 @@ jobs:
         with:
           draft: false
           prerelease: false
-          tag: ${{ steps.bump_n_tag.outputs.new_tag }}
+          tag_name: "${{ steps.bump_n_tag.outputs.new_tag }}"
           generate_release_notes: true
           files: |
             firmware.uf2
