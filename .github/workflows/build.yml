@@ -58,10 +58,23 @@ jobs:
       - name: bt75 Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 bt75.uf2
-      - name: Archive (bt75)
+        run: cp build/zephyr/zmk.uf2 firmware.uf2 | cp firmware.uf2 flasher/firmware.uf2
+      - name: Generate flash
+        run: temp_dir=$(mktemp -d) | wget -qO- https://api.github.com/repos/megastep/makeself/releases/latest | grep "/makeself-" | cut -d : -f 2,3 | tr -d \" | xargs wget -q -O "$temp_dir/makeself.sh" - | zsh "$temp_dir/makeself.sh" "./flasher" flash "Custom BT75 Flasher" "./flash"
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+      - name: Release
+        uses: softprops/action-gh-release@v1
+          draft: true
+          files: |
+            firmware.uf2
+            flash
+      - name: Archive (firmware.uf2)
         if: ${{ !env.ACT }}
         uses: actions/upload-artifact@v3
         with:
           name: firmware
-          path: bt75.uf2
+          path: firmware.uf2
