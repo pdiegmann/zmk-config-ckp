@@ -7,20 +7,19 @@
 
 REPOSITORY="pdiegmann/zmk-config-ckp"
 FIRMWARENAME="firmware.uf2"
-TARGETPREFIX=$(find / -maxdepth 3 -type d -name "CKP" 2>/dev/null)
-TARGET="$TARGETPREFIX/CURRENT.UF2"
 
 function try_flash() {
     echo "looking for board..."
+    TARGETPREFIX=$(find / -maxdepth 3 -type d -name "CKP" 2>/dev/null)
+    TARGET=$TARGETPREFIX/CURRENT.UF2
 
     if test -f $TARGET; then
         echo "looking for firmware..."
 
         TEMPFILE=$(mktemp)
-        curl -Ls -o- 'https://api.github.com/repos/$REPOSITORY/releases/latest' | grep '/$FIRMWARENAME' | cut -d : -f 2,3 | tr -d \" | xargs curl -Ls -o '$TEMPFILE'
-        if ls temp_file 1> /dev/null 2>&1; then
+        if curl -Ls -o- https://api.github.com/repos/$REPOSITORY/releases/latest | grep /$FIRMWARENAME | cut -d : -f 2,3 | tr -d \" | xargs curl -Ls -o $TEMPFILE | ls $TEMPFILE 1> /dev/null 2>&1; then
             echo "flashing ${TEMPFILE} to $TARGET..."
-            cp -X '$TEMPFILE' $TARGET
+            cp -X $TEMPFILE $TARGET
             return 0
         else
             echo "no firmware found, using default..."
