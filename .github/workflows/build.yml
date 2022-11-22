@@ -58,7 +58,7 @@ jobs:
       - name: bt75 config file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 firmware.uf2 | cp firmware.uf2 flasher/firmware.uf2
+        run: cp build/zephyr/zmk.uf2 firmware.uf2 | cp build/zephyr/zmk.uf2 flasher/firmware.uf2
       - name: Generate flash
         run: bash ./create_flash.sh
       - name: Bump version and push tag
