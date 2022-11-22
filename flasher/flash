@@ -17,10 +17,10 @@ function try_flash() {
         echo "looking for firmware..."
 
         TEMPFILE=$(mktemp)
-        curl -Ls -o- "https://api.github.com/repos/$REPOSITORY/releases/latest" | grep "/$FIRMWARENAME" | cut -d : -f 2,3 | tr -d \" | xargs curl -Ls -o "$TEMPFILE"
+        curl -Ls -o- 'https://api.github.com/repos/$REPOSITORY/releases/latest' | grep '/$FIRMWARENAME' | cut -d : -f 2,3 | tr -d \" | xargs curl -Ls -o '$TEMPFILE'
         if ls temp_file 1> /dev/null 2>&1; then
             echo "flashing ${TEMPFILE} to $TARGET..."
-            cp -X $TEMPFILE $TARGET
+            cp -X '$TEMPFILE' $TARGET
             return 0
         else
             echo "no firmware found, using default..."
