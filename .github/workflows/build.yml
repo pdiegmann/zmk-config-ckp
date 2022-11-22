@@ -75,7 +75,9 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          draft: true
+          draft: false
+          prerelease: false
+          generate_release_notes: true
           files: |
             firmware.uf2
             flash
