@@ -60,11 +60,13 @@ jobs:
       - name: Rename zmk.uf2
         run: cp build/zephyr/zmk.uf2 firmware.uf2 | cp build/zephyr/zmk.uf2 flasher/firmware.uf2
       - name: make it executable
-        run: chmod +x flasher/flash
+        run: chmod +x ./flasher/flash
       - name: Generate flash
         run: bash ./create_flash.sh
       - name: make it executable
-        run: chmod +x flash
+        run: chmod +x ./flash
+      - name: make a tar bundle
+        run: tar -zcvf ./flash.tar.gz ./flash
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@v1
         env:
@@ -77,6 +79,7 @@ jobs:
           files: |
             firmware.uf2
             flash
+            flash.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Archive (firmware.uf2)
@@ -84,4 +87,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: firmware
-          path: firmware.uf2
+          path: |
+            firmware.uf2
+            flash
+            flash.tar.gz
